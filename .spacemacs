@@ -622,6 +622,9 @@ before packages are loaded."
   ;;; esc always quits
   (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
   (global-set-key (kbd "ESC") 'keyboard-escape-quit)
+
+  ;; maybe transparency?
+  (set-frame-parameter nil 'alpha-background 80)
 )
 
 
