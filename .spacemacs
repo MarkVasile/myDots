@@ -32,7 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(systemd
      (typescript :variables
                  typescript-indent-level 2
                  typescript-backend 'lsp
