@@ -52,3 +52,11 @@ My always-on apps are:
 - [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) for web development, videos, and fancy websites.
 - [Qutebrowser](https://qutebrowser.org/) for research and general browsing. I fell in love with cutebrowser thanks to its keyboard shortcuts for everything you might dream of doing in a browser.
 
+## KMonad setup
+
+The original KMonad doesn't quite work well with an Apple keyboard attached to a PC. I'm pretty sure I'm a minority in that regards. If you want to join me in this minority, you'll have to go through a few steps I had to do, to make things work:
+
+- pull the source code from KMonad, either from my own [fork](https://github.com/MarkVasile/kmonad.git) or from the [original](https://github.com/kmonad/kmonad.git) and then apply my changes (only one commit in my fork atm).
+- do a `stack install`
+
+The keyboard works fine except the FN key which crashes the KMonad. To fix this I'll have to go in and figure out how to merge the Linux/Mac/Windows event handlers. There's also the issue of having different key code mappings for Linux vs MacOS, in Types.hs.
