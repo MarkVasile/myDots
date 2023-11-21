@@ -111,3 +111,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 eval "$(starship init zsh)"
 source /usr/share/nvm/init-nvm.sh
+
+# Alsa equalizer
+export LADSPA_PATH=/usr/lib/ladspa
