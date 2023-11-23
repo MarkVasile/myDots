@@ -30,13 +30,15 @@ And remove the existing `.bashrc` and other dot files (maybe back them up if you
 Then you're ready to clone the repo and setup your new system:
 
 ```
-git clone --bare git@github.com:<YourAccount>/myDots.git $Home/.mydots
+git clone --bare git@github.com:<YourAccount>/myDots.git ~/.mydots
 config checkout
 ```
 
 You'll need to instruct the local repo again to not track all files:
 
 `config config --local status.showUntrackedFiles no`
+
+Sometimes if you miss some command you can simply run a `config reset --hard HEAD` to reset all your dot files to the latest in your repo.
 
 ## My toolset
 
