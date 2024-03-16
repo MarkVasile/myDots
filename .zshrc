@@ -100,6 +100,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Emacs default in terminal mode
+alias em="emacs -nw"
+
 # Wayland hints
 export XDG_SESSION_TYPE=wayland
 export GDK_BACKEND=wayland
@@ -107,10 +110,34 @@ export GDK_BACKEND=wayland
 # trying 10ms for key sequences in emacs...
 KEYTIMEOUT=1
 
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH:/var/lib/flatpak/exports/share:/home/mv/.local/share/flatpak/exports/share"
 
-eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.config/starship.toml
+# eval "$(starship init zsh)"
 source /usr/share/nvm/init-nvm.sh
 
 # Alsa equalizer
 export LADSPA_PATH=/usr/lib/ladspa
+
+# >>> conda initialize >>>
+#
+# Uncomment below to stop miniconda from starting on login
+# conda config --set auto_activate_base false
+#
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/mv/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/mv/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/mv/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/mv/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export CUDA_HOME=/usr/local/cuda-12.1
+export PATH=$PATH:$CUDA_HOME/bin
+

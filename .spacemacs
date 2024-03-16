@@ -32,13 +32,14 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(systemd
+   '(python
+     systemd
      (typescript :variables
                  typescript-indent-level 2
                  typescript-backend 'lsp
                  typescript-linter 'eslint)
      vue
-     markdown json csv yaml
+     markdown json csv yaml svelte
      haskell
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -52,7 +53,7 @@ This function should only modify configuration layer settings."
      helm
      ranger
      fzf
-     themes-megapack
+     ;; themes-megapack
      ;; multiple-cursors
      ;; org
      ;; (shell :variables
@@ -74,6 +75,7 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
                                       nerd-icons
+                                      web
                                       ag
                                       underwater-theme
                                       flatui-dark-theme
@@ -254,7 +256,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(rebecca
+   dotspacemacs-themes '(
+                         rebecca
                          underwater
                          spacemacs-dark
                          spacemacs-light
@@ -614,6 +617,8 @@ before packages are loaded."
    web-mode-code-indent-offset 2
    js-indent-level 2)
 
+  ;;; (customize-set-variable 'svelte-basic-offset 2)
+
   (setq js2-strict-missing-semi-warning nil)
 
   (require 'editorconfig)
@@ -625,6 +630,10 @@ before packages are loaded."
 
   ;; maybe transparency?
   (set-frame-parameter nil 'alpha-background 80)
+
+  ;; Code Awareness
+  (add-to-list 'load-path "/home/mv/Code/CodeAwareness/ca.emacs/src/elisp")
+  (require 'codeawareness)
 )
 
 
@@ -641,7 +650,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(nerd-icons ranger attrap auto-dictionary browse-at-remote company-cabal company-web web-completion-data dante lcr eldoc darktooth-theme autothemer diff-hl doom-themes flatui-dark-theme flatui-theme flycheck-haskell flycheck-pos-tip pos-tip flyspell-correct-helm flyspell-correct forge yaml ghub closql emacsql treepy git-link git-messenger git-modes git-timemachine gitignore-templates helm-c-yasnippet helm-company helm-css-scss helm-git-grep helm-ls-git helm-lsp impatient-mode htmlize lsp-origami origami lsp-treemacs lsp-ui mwim noctilux-theme obsidian-theme pug-mode rebecca-theme sass-mode haml-mode scss-mode slim-mode smeargle soft-morning-theme tagedit treemacs-magit magit magit-section git-commit with-editor transient seq underwater-theme unfill xclip yasnippet-snippets zeno-theme tern tide add-node-modules-path company emmet-mode import-js grizzl typescript-mode web-mode yasnippet ws-butler writeroom-mode winum which-key volatile-highlights vim-powerline vi-tilde-fringe uuidgen undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org term-cursor symon symbol-overlay string-inflection string-edit-at-point spacemacs-whitespace-cleanup spacemacs-purpose-popwin spaceline space-doc restart-emacs request rainbow-delimiters quickrun popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless multi-line mmm-mode markdown-toc macrostep lorem-ipsum link-hint inspector info+ indent-guide hybrid-mode hungry-delete holy-mode hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-descbinds helm-comint helm-ag google-translate golden-ratio gh-md flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-evilified-state evil-escape evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav elisp-def editorconfig dumb-jump drag-stuff dotenv-mode dired-quick-sort diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile all-the-icons aggressive-indent ace-link ace-jump-helm-line)))
+   '(dap-mode lsp-docker bui web nerd-icons ranger attrap auto-dictionary browse-at-remote company-cabal company-web web-completion-data dante lcr eldoc darktooth-theme autothemer diff-hl doom-themes flatui-dark-theme flatui-theme flycheck-haskell flycheck-pos-tip pos-tip flyspell-correct-helm flyspell-correct forge yaml ghub closql emacsql treepy git-link git-messenger git-modes git-timemachine gitignore-templates helm-c-yasnippet helm-company helm-css-scss helm-git-grep helm-ls-git helm-lsp impatient-mode htmlize lsp-origami origami lsp-treemacs lsp-ui mwim noctilux-theme obsidian-theme pug-mode rebecca-theme sass-mode haml-mode scss-mode slim-mode smeargle soft-morning-theme tagedit treemacs-magit magit magit-section git-commit with-editor transient seq underwater-theme unfill xclip yasnippet-snippets zeno-theme tern tide add-node-modules-path company emmet-mode import-js grizzl typescript-mode web-mode yasnippet ws-butler writeroom-mode winum which-key volatile-highlights vim-powerline vi-tilde-fringe uuidgen undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org term-cursor symon symbol-overlay string-inflection string-edit-at-point spacemacs-whitespace-cleanup spacemacs-purpose-popwin spaceline space-doc restart-emacs request rainbow-delimiters quickrun popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless multi-line mmm-mode markdown-toc macrostep lorem-ipsum link-hint inspector info+ indent-guide hybrid-mode hungry-delete holy-mode hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-descbinds helm-comint helm-ag google-translate golden-ratio gh-md flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-evilified-state evil-escape evil-easymotion evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu emr elisp-slime-nav elisp-def editorconfig dumb-jump drag-stuff dotenv-mode dired-quick-sort diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile all-the-icons aggressive-indent ace-link ace-jump-helm-line)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

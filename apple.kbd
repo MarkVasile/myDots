@@ -6,10 +6,29 @@
     ;; To understand the importance of the following line, see the section on
     ;; Compose-key sequences at the near-bottom of this file.
     ;; "/usr/bin/sleep 1 && /usr/bin/setxkbmap -option compose:ralt")
+  allow-cmd true ;; Allow running scripts on button press 
   cmp-seq ralt    ;; Set the compose key to `RightAlt'
   cmp-seq-delay 5 ;; 5ms delay between each compose-key sequence press
   fallthrough true
 )
+
+(defalias
+  vlp (cmd-button "/home/mv/.local/bin/vol_plus")
+  vlm (cmd-button "/home/mv/.local/bin/vol_minus")
+)
+
+(defalias
+  lmd (layer-toggle media)
+)
+
+;; (deflayer something
+;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _       _    _    _      _    _    _    _  
+;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _       _    _    _      _    _    _    _  
+;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _       _    _    _      _    _    _    _  
+;;   _    _    _    _    _    _    _    _    _    _    _    _    _                             _    _    _    _  
+;;   _    _    _    _    _    _    _    _    _    _    _    _                      _           _    _    _    _   
+;;   _    _    _              _                   _    _    _                 _    _    _      _         _  
+;; )
 
 (defsrc
   esc  brdn brup zoom find micm zzz  prev pp   next mute vold volu menu    f13 f14 f15   f16  f17  f18  f19
@@ -26,6 +45,14 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \       del  end  pgdn   kp7  kp8  kp9  kp-
   lctl a    s    d    f    g    h    j    k    l    ;    '    ret                           kp4  kp5  kp6  kp+
   lsft z    x    c    v    b    n    m    ,    .    /    rsft                   up          kp1  kp2  kp3  kprt
-  lctl lalt lmet           spc                 rmet ralt rctl              left down rght   kp0       kp.
+  lctl lalt lmet           spc                 @lmd ralt rctl              left down rght   kp0       kp.
 )
 
+(deflayer media
+  _    _    _    _    _    _    _    _    _    _    _    @vlm @vlp _       _    _    _      _    _    _    _  
+  _    q    w    _    _    _    _    _    _    _    _    _    _    _       _    _    _      _    _    _    _  
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _       _    _    _      _    _    _    _  
+  _    _    _    _    _    _    _    _    _    _    _    _    _                             _    _    _    _  
+  _    _    _    _    _    _    _    _    _    _    _    _                      _           _    _    _    _   
+  _    _    _              _                   _    _    _                 _    _    _      _         _  
+)
