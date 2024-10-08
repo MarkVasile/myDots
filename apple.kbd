@@ -21,17 +21,8 @@
   lmd (layer-toggle media)
 )
 
-;; (deflayer something
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _       _    _    _      _    _    _    _  
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _       _    _    _      _    _    _    _  
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _       _    _    _      _    _    _    _  
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _                             _    _    _    _  
-;;   _    _    _    _    _    _    _    _    _    _    _    _                      _           _    _    _    _   
-;;   _    _    _              _                   _    _    _                 _    _    _      _         _  
-;; )
-
 (defsrc
-  esc  brdn brup zoom find micm zzz  prev pp   next mute vold volu menu    f13 f14 f15   f16  f17  f18  f19
+  esc  brdn brup zoom find micm zzz  prev pp   next mute vold volu menu    f13  f14  f15    f16  f17  f18  f19
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc    fn   home pgup   nlck =    kp/  kp*
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \       del  end  pgdn   kp7  kp8  kp9  kp-
   caps a    s    d    f    g    h    j    k    l    ;    '    ret                           kp4  kp5  kp6  kp+

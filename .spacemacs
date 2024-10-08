@@ -38,6 +38,12 @@ This function should only modify configuration layer settings."
                  typescript-indent-level 2
                  typescript-backend 'lsp
                  typescript-linter 'eslint)
+
+     (rust :variables
+            lsp-rust-server 'rust-analyzer
+            lsp-rust-analyzer-cargo-auto-reload t
+            rustic-rustfmt-config-alist '((edition . "2021"))
+            rustic-format-on-save t)
      vue
      markdown json csv yaml svelte
      haskell

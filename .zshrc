@@ -114,7 +114,6 @@ export PATH="$HOME/.local/bin:$PATH:/var/lib/flatpak/exports/share:/home/mv/.loc
 
 export STARSHIP_CONFIG=~/.config/starship.toml
 # eval "$(starship init zsh)"
-source /usr/share/nvm/init-nvm.sh
 
 # Alsa equalizer
 export LADSPA_PATH=/usr/lib/ladspa
@@ -141,3 +140,8 @@ unset __conda_setup
 export CUDA_HOME=/usr/local/cuda-12.1
 export PATH=$PATH:$CUDA_HOME/bin
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm use 20.18
