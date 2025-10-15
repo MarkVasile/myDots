@@ -57,10 +57,12 @@
 (package! spacemacs-theme)
 (package! rebecca-theme)
 
-;; PROGRAMMIN
+;; PROGRAMMING
+(package! tree-sitter)
+(package! tree-sitter-langs)
 (package! treesit-auto)
 (package! package-lint)
-(package! lsp-ui)
 
-;; OTHERS
+;; META
+;; (package! annotate)
 (package! fzf)

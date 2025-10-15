@@ -75,6 +75,35 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Disable automatic End Comments
+(setq comment-multi-line t)
+
+;; Exist without confirmation
+(setq confirm-kill-emacs nil)
+
+;; Editor indents 2 spaces
+(setq custom-tab-width 2)
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode t)
+            (setq tab-width custom-tab-width)))
+
+(add-hook 'lisp-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)))
+
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)))
+
+(setq-default electric-indent-inhibit t)
+(setq backward-delete-char-untabify-method 'hungry)
+
+;; Typescript and NodeJS
+(add-hook 'typescript-ts-mode-local-vars-hook #'add-node-modules-path)
+(add-hook 'tsx-ts-mode-local-vars-hook        #'add-node-modules-path)
+
+;; FZF file finder
 (after! project
   (map! :leader
         (:prefix ("p" . "project")
@@ -85,7 +114,7 @@
 (defvar my/project-theme-rules
   '(("ca\\.api"         . wheatgrass)
     ("caw\\.localservice" . doom-dark+)
-    ("muninn"           . doom-nord)))
+    ("muninn"           . rebecca)))
 
 (defvar my/project-theme-fallback nil)
 
